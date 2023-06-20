@@ -1,0 +1,59 @@
+@import url('https://fonts.googleapis.com/css2?family=Cabin+Sketch:wght@700&family=Foldit:wght@300&family=Monoton&family=Nothing+You+Could+Do&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Coda&display=swap');
+
+
+.carousel-title {
+  font-family: 'Coda', swap;
+  font-weight: 700;
+  font-size: 24px;
+  color: #fff;
+  text-align: center;
+  margin-bottom: 20px;
+}
+
+.coin-item {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 20px;
+}
+
+.coin-details {
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+.coin-name {
+  font-size: 16px;
+  font-weight: bold;
+  margin-bottom: 5px;
+}
+.coin-price {
+  font-size: 18px;
+  font-weight: bold;
+  margin-bottom: 5px;
+}
+
+.coin-percentage {
+  font-size: 14px;
+  color: #888;
+  margin-bottom: 5px;
+}
+
+/* Add any additional styling as needed */
+.carousel-container {
+  margin-top: 20px; /* Adjust the top margin value as needed */
+}
+.carousel-container {
+  margin-top: 20px; /* Adjust the top margin value as needed */
+}
+
+.carousel-title {
+   /* Adjust the bottom margin value as needed */
+}
+
+.carousel-content {
+  /* Add any additional styles for the carousel content */
+}
