@@ -53,10 +53,11 @@ const Carousel = () => {
               <img src={coin.image} alt={coin.name} className="coin-image" />
               <div className="coin-details">
             <span className="coin-name">{coin.name}</span>
-            <span className="coin-price">${coin.current_price.toFixed(2)}</span>
+            
             <span className="coin-percentage">
               {coin.price_change_percentage_24h.toFixed(2)}%
             </span>
+            <span className="coin-price">${coin.current_price.toFixed(2)}</span>
       </div>
     </a>
   </div>
