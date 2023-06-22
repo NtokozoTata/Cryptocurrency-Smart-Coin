@@ -1,15 +1,19 @@
 import React, { useState, useEffect } from 'react';
 import axios from 'axios';
-import { Routes, Route } from 'react-router-dom';
 import Coins from './components/Coins';
 import Coin from './routes/Coin';
 import Navbar from './components/Navbar';
 import Carousel from './components/Carousel';
+import { Switch, Route, Routes, Link } from 'react-router-dom';
+import Login from './components/Login';
+import SignUp from './components/SignUp';
+import firebase from './firebase';
 
 function App() {
   const [coins, setCoins] = useState([]);
   const [searchQuery, setSearchQuery] = useState('');
   const [searchResult, setSearchResult] = useState(null);
+  const [user, setUser] = useState(null);
 
   const url =
     'https://api.coingecko.com/api/v3/coins/markets?vs_currency=usd&order=market_cap_desc&per_page=50&page=1&sparkline=false';
@@ -39,9 +43,21 @@ function App() {
       });
   }, []);
 
+  useEffect(() => {
+    const unsubscribe = firebase.auth().onAuthStateChanged((user) => {
+      setUser(user);
+    });
+
+    return () => unsubscribe();
+  }, []);
+
+  const handleLogout = () => {
+    firebase.auth().signOut();
+  };
+
   return (
     <>
-      <Navbar />
+      <Navbar user={user} handleLogout={handleLogout} />
       <Carousel />
       <div style={styles.searchContainer}>
         <input
@@ -77,6 +93,8 @@ function App() {
           }
         />
         <Route path="/coin/:coinId" element={<Coin />} />
+        <Route path="/login" element={<Login />} />
+        <Route path="/signup" element={<SignUp />} />
       </Routes>
     </>
   );
