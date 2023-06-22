@@ -71,4 +71,5 @@ const Carousel = () => {
   return <div className="carousel-container">{renderTrendingCoinsCarousel()}</div>;
 };
 
+
 export default Carousel;

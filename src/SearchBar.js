@@ -30,6 +30,7 @@ const styles = {
     alignItems: 'center',
     marginBottom: 10,
     color: 'red',
+    paddingTop: 80,
   },
   input: {
     marginRight: 10,

@@ -88,6 +88,7 @@ const styles = {
     justifyContent: 'center',
     alignItems: 'center',
     marginBottom: 10,
+    paddingTop: 30,
   },
   searchInput: {
     marginRight: 10,
