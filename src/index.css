@@ -14,9 +14,13 @@ body {
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 
-  background-color: #26272b;
+  background-color: #d60d0d;
+  background-image: url('./Images/rm373batch4-50-ko8a3m27.jpg'); /* Replace 'image-name.jpg' with the actual name and extension of your image file */
+  background-size: contain; /* Adjust the background size as needed */
+  background-position: center; /* Adjust the background position as needed */
   color: #f4f4f4;
 }
+
 
 a {
   color: #f4f4f4;
