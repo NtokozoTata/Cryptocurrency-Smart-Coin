@@ -4,7 +4,7 @@ import Coins from './components/Coins';
 import Coin from './routes/Coin';
 import Navbar from './components/Navbar';
 import Carousel from './components/Carousel';
-import { Switch, Route, Routes, Link } from 'react-router-dom';
+import { Switch, Route, Routes, Link, useLocation } from 'react-router-dom';
 import Login from './components/Login';
 import SignUp from './components/SignUp';
 import firebase from './firebase';
@@ -55,22 +55,30 @@ function App() {
     firebase.auth().signOut();
   };
 
+  // Get the current location using useLocation hook from react-router-dom
+  const location = useLocation();
+
+  // Determine whether to show the carousel and search based on the current route
+  const showCarouselAndSearch = location.pathname !== '/login';
+
   return (
     <>
       <Navbar user={user} handleLogout={handleLogout} />
-      <Carousel />
-      <div style={styles.searchContainer}>
-        <input
-          type="text"
-          value={searchQuery}
-          onChange={(e) => setSearchQuery(e.target.value)}
-          placeholder="Search coins..."
-          style={styles.searchInput}
-        />
-        <button onClick={handleSearch} style={styles.searchButton}>
-          Search
-        </button>
-      </div>
+      {showCarouselAndSearch && <Carousel />}
+      {showCarouselAndSearch && (
+        <div style={styles.searchContainer}>
+          <input
+            type="text"
+            value={searchQuery}
+            onChange={(e) => setSearchQuery(e.target.value)}
+            placeholder="Search coins..."
+            style={styles.searchInput}
+          />
+          <button onClick={handleSearch} style={styles.searchButton}>
+            Search
+          </button>
+        </div>
+      )}
       <Routes>
         <Route
           path="/"
